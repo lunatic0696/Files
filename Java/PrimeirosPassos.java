@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import javax.swing,JOptionPane
+import javax.swing.JOptionPane
 
 public class PrimeirosPassos {
 	public static void main(String[] args){
