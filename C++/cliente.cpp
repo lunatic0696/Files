@@ -13,24 +13,61 @@ Taluno m[1];
 void incluir(){
 	int resp;
 	do{
+		Taluno input;
+		int i = 0, p = -1;
 		if (pos<5){
     		printf("Digite a matricula:");
-	        scanf("%d",&v[pos].mat);
-     	    fflush(stdin);
+	        scanf("%d",&input.mat);
+
      	    printf("Digite o nome:");
-    	    gets(v[pos].nome);
+    	    fflush(stdin);
+			gets(input.nome);
     	    printf("Digite a nota:");
-    	    scanf("%f",&v[pos].nota);
+    	    scanf("%f",&input.nota);
     	    pos++;
 		}
-		else {
-            printf("Vetor Cheio!");
-            break;
+		for (i = 0; i < pos; i++){
+			if (input.mat < v[i].mat){
+				p = i;
+				break;
+			}
+		if (p==-1){
+			v[pos] = input;
+			pos++;
 		}
+		else{
+			for (i = pos; i > p; i--){v[i] = v[i-1];}
+        	v[p] = input;
+			pos++;}
         printf("Deseja incluir outro (1-Sim 2-Nao)?");
 	    scanf("%d",&resp);
-	}while (resp==1);
+			if (resp == 1){
+				break;
+			}
+		}
+	}
 }
+//void incluir2(){
+//	int resp;
+//	do{
+//		if (pos<5){
+//  		printf("Digite a matricula:");
+//	        scanf("%d",&v[pos].mat);
+//    	    fflush(stdin);
+//     	    printf("Digite o nome:");
+//    	    gets(v[pos].nome);
+//    	    printf("Digite a nota:");
+//    	    scanf("%f",&v[pos].nota);
+//    	    pos++;
+//		}
+//		else {
+//            printf("Vetor Cheio!");
+//            break;
+//		}
+//        printf("Deseja incluir outro (1-Sim 2-Nao)?");
+//	    scanf("%d",&resp);
+//	}while (resp==1);
+//}
 
 void mostrar(){
 	for(int i=0;i<pos;i++){
@@ -54,6 +91,10 @@ void maiornota(){
     break;
     }
 }
+
+
+
+
 main(){
 	int op;
     do {
@@ -71,6 +112,4 @@ main(){
     		default:printf("Opcao invalida!!");
 		}
 
-	} while (op!=0);
-
-   }
+	} while (op!=0);{}

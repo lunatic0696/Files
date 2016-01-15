@@ -1,0 +1,9 @@
+lw 1,0,a
+beq 0,1,then
+beq 0,0,endif
+then: lw 2,0,b
+sw 2,0,a
+endif: sw 0,0,b
+halt
+a: .fill 0
+b: .fill10

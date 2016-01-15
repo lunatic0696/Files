@@ -1,0 +1,8 @@
+lw 1,0,b
+lw 2,0,c
+add 1,1,2
+sw 1,0,a
+halt
+a: .fill0
+b: .fill0
+c: .fill0
