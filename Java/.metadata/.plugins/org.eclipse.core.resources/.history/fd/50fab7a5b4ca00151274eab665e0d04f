@@ -1,0 +1,22 @@
+package forca;
+
+
+public class Tema {
+	private String palavra;
+	private String tema;
+	
+	public String getPalavra() {
+		return palavra;
+	}
+	public void setPalavra(String palavra) {
+		this.palavra = palavra;
+	}
+	public String getTema() {
+		return tema;
+	}
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+	
+
+}
