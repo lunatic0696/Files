@@ -1,0 +1,11 @@
+package banco;
+
+class Programa{
+	public static void main(String[] args) {
+		Conta minhaConta;
+		minhaConta = new Conta();
+		minhaConta.nome = "Paulo";
+		minhaConta.saldo = 1000.00;
+		System.out.println("Saldo atual: " + minhaConta.saldo);
+	}
+}
