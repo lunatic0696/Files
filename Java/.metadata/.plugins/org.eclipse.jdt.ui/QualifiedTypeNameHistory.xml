@@ -3,4 +3,11 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="gildasiozeth.banco.modelo.InvalidNumberException"/>
+<fullyQualifiedTypeName name="grupoD.associapp.modelo.Membro"/>
+<fullyQualifiedTypeName name="grupoD.associapp.modelo.Gestao"/>
+<fullyQualifiedTypeName name="grupoD.associapp.modelo.Parentesco"/>
+<fullyQualifiedTypeName name="grupoD.associapp.modelo.Contato"/>
+<fullyQualifiedTypeName name="grupoD.associapp.enums.Cargo"/>
+<fullyQualifiedTypeName name="grupoD.associapp.dao.PessoaJDBC_DAO"/>
+<fullyQualifiedTypeName name="grupoD.associapp.dao.GestaoJDBC_DAO"/>
 </qualifiedTypeNameHistroy>

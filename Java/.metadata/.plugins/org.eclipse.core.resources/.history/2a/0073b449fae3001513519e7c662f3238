@@ -1,0 +1,179 @@
+package grupoD.associapp.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import grupoD.associapp.interfaces.ParentescoDAO;
+import grupoD.associapp.modelo.Contato;
+import grupoD.associapp.modelo.Familia;
+import grupoD.associapp.modelo.Membro;
+import grupoD.associapp.modelo.Parentesco;
+import grupoD.associapp.modelo.Recurso;
+import grupoD.associapp.modelo.TipoParentesco;
+
+public class ParentescoJDBC_DAO implements ParentescoDAO{
+	
+	private Connection conn;
+	
+	public Parentesco inserir(Parentesco p) {
+		Connection conn = ConnectionFactory.getConnection();
+		String sql = "INSERT INTO parentescos(id_pessoa, id_tipo) VALUES('" + p.getPessoa().getId() + "','" + p.getTipo().getId() +");";
+		try{
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			sql = "SELECT id FROM parentescos ORDER BY id DESC limit 1";
+			ResultSet rs = stmt.executeQuery(sql);
+			int id = rs.getInt("id");
+			p.setId(id);
+		}catch (SQLException e){
+			e.printStackTrace();
+			System.out.println("Erro ao inserir Parentesco");
+		}finally{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println("Erro ao fechar conexão");
+				e.printStackTrace();
+			}
+		}
+		
+		return p;
+	}
+	@Override
+	public void createTable() {
+		Connection conn = ConnectionFactory.getConnection();
+		String sql = "CREATE TABLE parentescos(id INTEGER PRIMARY KEY AUTOINCREMENT, id_tipo INT, id_pessoa INT);";
+		try{
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			conn.close();
+		}catch (SQLException e){
+			e.printStackTrace();
+			System.out.println("Erro ao criar tabela");
+		}finally{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println("Erro ao fechar conexão");
+				e.printStackTrace();
+			}
+		}
+	}
+	@Override
+	public List<Parentesco> obterParentescos(int id_pessoa) {
+		conn = ConnectionFactory.getConnection();
+		String sql = "SELECT * FROM parentescos WHERE id_pessoa = " + id_pessoa;
+		List<Parentesco> parentescos = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet resultado = stmt.executeQuery(sql);
+			PessoaJDBC_DAO daoP = new PessoaJDBC_DAO();
+			while (resultado.next()) {
+				Parentesco p = new Parentesco();
+				p.setId(resultado.getInt("id"));
+				p.setPessoa(daoP.obter(id_pessoa));
+				p.setTipo(obterTipoParentescoEspelho(resultado.getString("tipo")));
+				parentescos.add(p);
+			}
+			
+			return parentescos;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public TipoParentesco obterTipoParentescoEspelho(String nome){
+		Connection conn = ConnectionFactory.getConnection();
+		String sql = "SELECT * FROM tipodeparentesco where nome = " + nome;
+		String str = "";
+		TipoParentesco tp = null;
+		TipoParentesco espelho = null;
+
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet resultado = stmt.executeQuery(sql);
+			while (resultado.next()) {
+				tp = new TipoParentesco();
+				tp.setId(resultado.getInt("id"));
+				tp.setNome(resultado.getString("nome"));
+				
+				sql = "SELECT * FROM pessoas where id = " + tp.getId();
+				PessoaJDBC_DAO daoP = new PessoaJDBC_DAO();
+				ResultSet resultado2 = stmt.executeQuery(sql);
+				String sexo = daoP.obter(resultado2.getInt("id")).getSexo();
+				String idEspelho = "id_espelho";
+				espelho = new TipoParentesco();
+				if(sexo == "M"){
+					espelho.setId(resultado.getInt(idEspelho + "M"));
+				}else if(sexo == "F"){
+					espelho.setId(resultado.getInt(idEspelho + "F"));
+				}
+				sql = "SELECT * FROM tipodeparentesco where id = " + espelho.getId();
+				ResultSet resultado3 = stmt.executeQuery(sql);
+				
+				tp.setEspelho(espelho);
+				espelho.setEspelho(tp);
+				espelho.setNome(resultado3.getString("nome"));
+				
+			}	
+			return tp;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return tp;
+	}
+	
+	
+	@Override
+	public void remover(Parentesco p) {
+		Connection conn = ConnectionFactory.getConnection();
+		String sql = "DELETE FROM parentescos where parentescos.tipo = " + p.getTipo().getId();
+		try{
+			System.out.println(sql);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println("Erro ao excluir parentesco");
+		}finally{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				System.out.println("Erro ao fechar conexão");
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	public Parentesco obter(String tipo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String obterTipoParentescoNome(String nome) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

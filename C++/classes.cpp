@@ -23,8 +23,6 @@ class Lista{
 	public:
 		No *inicio;
 		No *fim;
-		No *inicio2;
-		No *fim2;
 		
 		Lista(){
 			inicio = NULL;
@@ -39,6 +37,7 @@ class Lista{
 			}
 			else{
 				fim->prox = novo;
+				novo->ante = fim;
 				fim = novo;
 			}
 		}
@@ -61,17 +60,46 @@ class Lista{
 			inicio = novo;
 		}
 		
-		void addOrd(int m, chat n[23]){
+		void  mostrarAoContrario(){
+			No *atual;
+			atual = fim;
+			while(atual!=NULL){
+				printf("\nMatricula %d",atual->mat);
+				printf("\nNome %s",atual->nome);
+				atual=atual->ante;
+			}
+		}
+		
+		void addOrd(int m, char n[23]){
 			No *novo = new No(m,n);
 			if(inicio==NULL){
 				inicio=novo;
 				fim=novo;
 			}
 			else{
-				No *atual = inicio;
-				No *ant = NULL;
-				inte achou = 0
-					
+				No *atual;
+				atual = inicio;
+				while(atual != NULL){
+					if(novo->mat<atual->mat || atual->prox == NULL){
+						if (atual == inicio){
+							novo->prox = inicio;
+							inicio->ante = novo;
+							inicio=novo;
+						}
+						else if(atual->prox != NULL){
+							novo->prox = atual;
+							novo->ante = atual->ante;
+							atual->ante->prox = novo;
+							atual->ante = novo;
+						}
+						else{
+							novo->ante = fim;
+							fim->prox = novo;
+							fim = novo;
+						}
+						break;
+					atual=atual->prox;
+					}
 				}
 			}
 		}
@@ -79,7 +107,9 @@ class Lista{
 
 int main(){
 	Lista *lista = new Lista();
-	lista->addToFinal(2,"Fulano");
+	lista->addToFinal(3,"Fulano");
 	lista->addToInicio(1,"Beltrano");
+	lista->addOrd(2,"Beltrano");
 	lista->mostrar();
+	return 0;
 }

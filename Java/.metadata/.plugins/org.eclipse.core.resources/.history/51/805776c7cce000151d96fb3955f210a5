@@ -1,0 +1,16 @@
+package grupoD.associapp.modelo;
+
+public class Contato {
+	private String dado;
+	private String tipo;
+	
+	public Contato(String dado, String tipo){
+		this.dado = dado;
+		this.tipo = tipo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Contato ("+ tipo +"): " + dado;
+	}
+}
