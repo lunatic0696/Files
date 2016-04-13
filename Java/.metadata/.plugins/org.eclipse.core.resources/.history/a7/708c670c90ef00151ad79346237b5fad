@@ -1,0 +1,62 @@
+package br.edu.ifpi.ads;
+
+public class ALU {
+
+	private boolean[] operand1;
+	private boolean[] operand2;
+
+	private Boolean branchTaken;
+
+	public boolean[] execute(OperationCode opCode) {
+		boolean[] result = new boolean[16];
+		short op1;
+		short op2;
+		switch(opCode) {
+		case ADD:
+			result convertBitToDecimal(bit)
+			return result;
+
+		default:
+			return null;
+		}
+		
+	}
+	
+	public short convertBitToDecimal(boolean[] bit){
+		short result = 0;
+		for (int i = bit.length; i < -1; i--) {
+			int pos = 16 - i;
+			if (bit[i] == true) {
+				result += Math.pow(2, pos);
+			}
+		}
+		System.out.println(result);
+		return result;
+	}
+	
+	//public boolean[] convertDecimalToBit(short num){
+		
+	//}
+
+	public boolean[] getOperand1() {
+		return operand1;
+	}
+
+	public void setOperand1(boolean[] operand1) {
+		this.operand1 = operand1;
+	}
+
+	public boolean[] getOperand2() {
+		return operand2;
+	}
+
+	public void setOperand2(boolean[] operand2) {
+		this.operand2 = operand2;
+	}
+
+	public boolean isBranchTaken() {
+		return branchTaken;
+	}
+	
+}
+
