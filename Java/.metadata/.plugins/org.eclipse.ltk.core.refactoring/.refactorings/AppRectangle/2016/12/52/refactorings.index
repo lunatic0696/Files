@@ -1,0 +1,4 @@
+1482337923751	Move compilation unit
+1482337966858	Rename type 'TestRectangle'
+1482339582556	Rename local variable 'rectangle'
+1482341527162	Extract method 'getDouble'
