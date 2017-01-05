@@ -1,0 +1,35 @@
+package q5;
+
+import javax.swing.JOptionPane;
+
+public class Q5 {
+	
+	
+	public static void main(String[] args) {
+		
+		String[] parklot = new String[10];
+		int opcao = menu.showMenu();
+		switch (opcao) {
+		case 1:
+			String placa = JOptionPane.showInputDialog("Insira a placa do carro: ");
+			int vaga = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da vaga desejada: "));
+			menu.inserirCarro(parklot, vaga, placa);
+			menu.showMenu();
+		case 2:
+			int vagarem = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da vaga desejada: "));
+			menu.removerCarro(parklot, vagarem);
+			menu.showMenu();
+		case 3:
+			menu.showEstacionamento(parklot);
+			menu.showMenu();
+		case 4:
+			break;
+		
+		default:
+			JOptionPane.showMessageDialog(null, "Opção inválida");
+			menu.showMenu();
+		}
+		
+	}
+
+}

@@ -10,5 +10,12 @@
 <fullyQualifiedTypeName name="grupoD.associapp.dao.PessoaJDBC_DAO"/>
 <fullyQualifiedTypeName name="grupoD.associapp.dao.GestaoJDBC_DAO"/>
 <fullyQualifiedTypeName name="domain.Rectangle"/>
+<fullyQualifiedTypeName name="domain.Point"/>
+<fullyQualifiedTypeName name="domain.Conta"/>
+<fullyQualifiedTypeName name="javax.print.DocFlavor.INPUT_STREAM"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,18 @@
+package infra;
+
+public class TestaArray {
+
+	public static void main(String[] args) {
+		
+		int[] numeros = new int[3];
+		numeros[0] = 10;
+		numeros[1] = 11;
+		numeros[2] = 13;
+		
+		for(int i = 0; i < 3; i = i + 1){
+			System.out.println(numeros[i]);
+		}
+
+	}
+
+}
