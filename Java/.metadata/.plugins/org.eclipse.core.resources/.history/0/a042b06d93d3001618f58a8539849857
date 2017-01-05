@@ -1,0 +1,18 @@
+package fibonacci;
+
+public class Fibonacci {
+
+	public int calcular(int posicao){
+		int x = 1;
+		
+	}
+	
+	public int fib(int m){
+		for (int n = 1; n < m; n++) {
+			int y = m;
+			
+			
+		}
+	}
+
+}

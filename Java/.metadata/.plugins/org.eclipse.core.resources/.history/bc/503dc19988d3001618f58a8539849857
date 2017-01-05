@@ -1,0 +1,21 @@
+package q1;
+
+public class Funcionario {
+	
+	public String nome;
+	public double salario;
+	public String dtEntrada;
+	public String RG;
+	
+	public void aumentaSalario(double aumento){
+		this.salario += aumento;
+	}
+	
+	public void mostra(){
+		System.out.println(this.nome);
+		System.out.println(this.salario);
+		System.out.println(this.dtEntrada);
+		System.out.println(this.RG);
+	}
+
+}

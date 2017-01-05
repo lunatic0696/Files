@@ -1,0 +1,14 @@
+package q1;
+
+public class Main {
+	public static void main(String[] args) {
+		Funcionario fulano = new Funcionario();
+		fulano.nome = "Fulano";
+		fulano.salario = 1000.0;
+		System.out.println(fulano.nome);
+		System.out.println(fulano.salario);
+		fulano.aumentaSalario(400);
+		System.out.println(fulano.salario);
+	}
+
+}

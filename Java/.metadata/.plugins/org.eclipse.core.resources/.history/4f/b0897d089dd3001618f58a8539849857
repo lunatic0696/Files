@@ -1,0 +1,10 @@
+package programa2;
+
+public class Porta {
+	
+	double dimensX;
+	double dimensY;
+	double dimensZ;
+	String cor;
+
+}

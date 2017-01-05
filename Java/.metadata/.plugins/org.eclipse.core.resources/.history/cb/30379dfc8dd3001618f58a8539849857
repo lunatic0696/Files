@@ -1,0 +1,14 @@
+package q1;
+
+public class Data {
+	
+	public int dia = 0;
+	public int mes = 0;
+	public int ano = 0;
+	
+	@Override
+	public String toString() {
+		return this.dia + "/" + this.mes + "/" + this.ano;
+	}
+
+}
