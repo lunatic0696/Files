@@ -1,0 +1,15 @@
+package atvA;
+
+import javax.swing.JOptionPane;
+
+public class ITBI {
+
+	public static void main(String[] args) {
+		
+		float vtrans = Float.parseFloat(JOptionPane.showInputDialog("Insira o valor da transação: "));
+		int impo = Integer.parseInt(JOptionPane.showInputDialog("Insira o valor da transação: "));
+		float vimp = vtrans*(impo/100);
+
+	}
+
+}
