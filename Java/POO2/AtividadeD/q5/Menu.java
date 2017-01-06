@@ -13,8 +13,9 @@ public class Menu {
 		switch (opcao) {
 		case 1:
 			String placa = JOptionPane.showInputDialog("Insira a placa do carro: ");
-			int vaga = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da vaga desejada: "));
-			inserirCarro(p, vaga, placa);
+			Veiculo v = new Veiculo(placa);
+			int vaga = p.getVagaLivre();
+			inserirCarro(p, vaga, v);
 			showMenu();
 		case 2:
 			int vagarem = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da vaga desejada: "));
@@ -33,15 +34,15 @@ public class Menu {
 		
 	}
 
-	public static void inserirCarro(Parklot p,int vaga, String placa) {
+	public static void inserirCarro(Parklot p,int vaga, Veiculo v) {
 		if (vaga < p.park.length) {
-			p.park[vaga] = placa;
+			p.park[vaga] = v;
 		}
 	}
 	
 	public static void removerCarro(Parklot p, int vaga){
 		if (vaga < p.park.length) {
-			p.park[vaga] = "Vazio";
+			p.park[vaga] = null;
 		}
 	}
 	
