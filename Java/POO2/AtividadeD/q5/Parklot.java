@@ -1,7 +1,5 @@
 package q5;
 
-import java.util.Arrays;
-
 public class Parklot {
 	
 	public Veiculo[] park = new Veiculo[10];

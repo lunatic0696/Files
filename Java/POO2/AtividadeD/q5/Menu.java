@@ -8,8 +8,8 @@ public class Menu {
 	public static Parklot p;
 	
 	public static void showMenu(){
-		
-		int opcao = Integer.parseInt(JOptionPane.showInputDialog(msg));
+		int opcao = 0;
+		opcao = Integer.parseInt(JOptionPane.showInputDialog(msg));
 		switch (opcao) {
 		case 1:
 			String placa = JOptionPane.showInputDialog("Insira a placa do carro: ");
@@ -17,28 +17,39 @@ public class Menu {
 			int vaga = p.getVagaLivre();
 			inserirCarro(p, vaga, v);
 			showMenu();
+			break;
 		case 2:
-			int vagarem = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da vaga desejada: "));
-			removerCarro(p, vagarem);
+			String input = JOptionPane.showInputDialog("Insira o número da vaga desejada: ");
+			if(!input.isEmpty()) {removerCarro(p, Integer.valueOf(input));}
+			else {
+				JOptionPane.showMessageDialog(null, "Valor inválido");
+			}
 			showMenu();
+			break;
 		case 3:
 			showEstacionamento(p);
 			showMenu();
-		case 4:
 			break;
-		
+		case 4:
+			return;
 		default:
 			JOptionPane.showMessageDialog(null, "Opção inválida");
 			showMenu();
+			break;
 		}	
 		
 	}
 
 	public static void inserirCarro(Parklot p,int vaga, Veiculo v) {
-		if (vaga < p.park.length) {
-			p.park[vaga] = v;
+		for (int i = 0; i < p.getVagaLivre() ; i++) {
+			if (p.park[i].placa == v.placa) {
+				JOptionPane.showMessageDialog(null, "Erro: Mesma placa");
+				return;
+			}
 		}
+		p.park[vaga] = v;
 	}
+	
 	
 	public static void removerCarro(Parklot p, int vaga){
 		if (vaga < p.park.length) {
