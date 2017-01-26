@@ -19,8 +19,12 @@ public abstract class Conta {
 		this.titular = titular;
 	}
 	
-	public void depositar(double valor){
-		this.saldo += valor;
+	public void deposita(double valor){
+		if (valor < 0) {
+			throw new ValorInvalidoException(valor);
+		} else {
+			this.saldo += valor;
+		}
 	}
 
 }

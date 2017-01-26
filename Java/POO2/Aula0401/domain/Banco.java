@@ -22,8 +22,8 @@ public class Banco {
 		return this.nome;
 	}
 
-	public Conta novaConta(String nomeTitular){
+	/*public Conta novaConta(String nomeTitular){
 		return new Conta(nomeTitular);
-	}
+	}*/
 
 }

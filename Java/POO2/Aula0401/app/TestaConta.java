@@ -15,10 +15,10 @@ public class TestaConta {
 		conta.saldo = 100000;
 		
 		Conta conta2 = new Conta("Rogério");
-		conta.depositar(17500);
+		conta.deposita(17500);
 		
 		Conta conta3 = new Conta("Fulano");
-		conta3.depositar(2000);
+		conta3.deposita(2000);
 		
 		System.out.println(conta.toString());
 

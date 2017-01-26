@@ -1,0 +1,14 @@
+package infra;
+
+import domain.Conta;
+import domain.ContaPoupanca;
+
+public class TestaDeposita {
+
+	public static void main(String[] args) {
+		Conta cp = new ContaPoupanca("Fulano");
+		cp.depositar(-2);
+
+	}
+
+}
