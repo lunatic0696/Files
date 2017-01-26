@@ -1,0 +1,11 @@
+package modelo;
+
+public class Banco {
+	
+	Conta[] contas = new Conta[100];
+	
+	public void adiciona(Conta c){
+		
+	}
+
+}

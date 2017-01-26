@@ -1,8 +1,0 @@
-package q5;
-
-public class menu {
-	
-	public String msg = "Selecione uma opção: \n1 - Entrada\n2 - Saída\n3 - Listar situação atual\n4 - Sair";
-
-
-}

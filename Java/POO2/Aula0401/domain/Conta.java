@@ -1,6 +1,6 @@
 package domain;
 
-public class Conta {
+public abstract class Conta {
 	
 	public String titular;
 	public double saldo;

@@ -1,9 +1,0 @@
-package domain;
-
-public class Banco {
-	
-	Conta novaConta(String nomeTitular){
-		return new Conta(nomeTitular);
-	}
-
-}
