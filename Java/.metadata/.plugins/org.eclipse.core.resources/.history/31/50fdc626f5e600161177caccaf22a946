@@ -1,0 +1,7 @@
+Herança
+1 - Apenas copiando e colando.
+Classe Abstrata
+5 - Não
+6 - Isso faria com que o método nem sempre fosse implementado para cada classe filha de Conta criada
+7 - Não, métodos abstratos não podem ser chamados.
+Desafio - Estaremos criando um vetor de objetos que pode ser preenchido por qualquer classe filha de Conta.

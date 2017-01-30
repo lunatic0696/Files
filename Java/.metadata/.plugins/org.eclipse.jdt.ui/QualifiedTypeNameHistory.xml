@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="grupoD.associapp.dao.GestaoJDBC_DAO"/>
 <fullyQualifiedTypeName name="domain.Rectangle"/>
 <fullyQualifiedTypeName name="domain.Point"/>
-<fullyQualifiedTypeName name="domain.Conta"/>
 <fullyQualifiedTypeName name="javax.print.DocFlavor.INPUT_STREAM"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -34,6 +33,10 @@
 <fullyQualifiedTypeName name="modelo.AlunoEnsinoMedio"/>
 <fullyQualifiedTypeName name="modelo.Conta"/>
 <fullyQualifiedTypeName name="modelo.ContaCorrente"/>
-<fullyQualifiedTypeName name="modelo.ContaPoupanca"/>
 <fullyQualifiedTypeName name="modelo.AtualizadorDeContas"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="domain.Conta"/>
+<fullyQualifiedTypeName name="modelo.ContaPoupanca"/>
+<fullyQualifiedTypeName name="domain.ContaPoupanca"/>
+<fullyQualifiedTypeName name="domain.ValorInvalidoException"/>
 </qualifiedTypeNameHistroy>
