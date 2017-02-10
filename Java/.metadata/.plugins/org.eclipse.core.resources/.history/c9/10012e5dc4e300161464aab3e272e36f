@@ -1,9 +1,0 @@
-package modelo;
-
-public abstract class ContaPoupanca extends Conta{
-	
-	public void atualiza(double taxa) {
-		super.atualiza(taxa);
-	}
-
-}

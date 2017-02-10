@@ -1,0 +1,14 @@
+package infra;
+
+import java.util.List;
+
+import domain.ContaPoupanca;
+
+public class TestaOrdenacao {
+
+	public static void main(String[] args) {
+		List<ContaPoupanca> contas = new ArrayList();
+
+	}
+
+}
